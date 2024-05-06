@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
+  
+  namespace :adin do
+    get 'dashboards', to: 'dashboards#index'
+    resources :users, only: [:destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users
   root to: "homes#top"
