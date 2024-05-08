@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_admin!
+  
   def destroy
     @user = User.find(params[:id])
     @user.destroy
